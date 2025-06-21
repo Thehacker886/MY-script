@@ -1,0 +1,38 @@
+-- Carregar a Library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/WizardCreator/WizardUILibrary/main/Library.lua"))()
+
+-- Criar a Janela Principal
+local Window = Library:NewWindow({
+    Title = "Silent Aim Config",
+    Subtitle = "By SeuNome",
+    SaveFolder = "WizardLibrarySaves"
+})
+
+-- Criar a Aba
+local ServerTab = Window:NewTab("Silent Aim")
+
+-- Seção Silent Aim
+local SilentSection = ServerTab:NewSection("Silent Aim")
+
+-- Variáveis
+local Distance = 30
+local Toggle = false
+
+-- Slider de Distância
+SilentSection:NewSlider("Distance", "Define a distância do Silent Aim", 50, 30, function(Value)
+    Distance = Value
+    print("Distância definida:", Distance)
+end)
+
+-- Toggle do Silent Aim
+SilentSection:NewToggle("Silent Aim", "Ativa ou desativa Silent Aim", false, function(Value)
+    Toggle = Value
+    print("Silent Aim:", Toggle and "Ativado" or "Desativado")
+end)
+
+-- Seção de Chat Sound Configuration
+local ChatSection = ServerTab:NewSection("Chat Sound Configuration")
+-- (Aqui você pode adicionar mais sliders, toggles, ou funções relacionadas ao som do chat)
+
+-- Notificação de carregamento
+Library:Notify("Script carregado com sucesso!")
